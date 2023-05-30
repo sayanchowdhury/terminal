@@ -1,0 +1,24 @@
+# theme.toml template for a Hugo theme
+# See https://github.com/gohugoio/hugoThemes#themetoml for an example
+
+name = "terminal"
+license = "MIT"
+description = "A Personal Landing Page Hugo theme"
+homepage = "https://github.com/sayanchowdhury/terminal"
+tags = [
+  "responsive",
+  "simple",
+  "clean",
+  "minimalist",
+  "terminal"
+]
+features = [
+  "responsive",
+  "profile",
+  "terminal"
+]
+min_version = "0.97.1"
+
+[author]
+  name = "Sayan Chowdhury"
+  homepage = "https://github.com/sayanchowdhury"

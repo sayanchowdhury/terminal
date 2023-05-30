@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{{- if hugo.IsProduction | or (eq site.Params.env "production") | and (ne .Params.robotsNoIndex true) }}
+<meta name="robots" content="index, follow">
+{{- else }}
+<meta name="robots" content="noindex, nofollow">
+{{- end }}
+
+<title>{{ if .IsHome }}{{ else }}{{ if .Title }}{{ .Title }} | {{ end }}{{ end }}{{ site.Title }}</title>
+
+{{- if site.Params.analytics.google.SiteVerificationTag }}
+<meta name="google-site-verification" content="{{ site.Params.analytics.google.SiteVerificationTag }}">
+{{- end }}
+
+{{- /* Styles */}}
+{{- /* bundle all required css */}}
+{{- /* Add extended css after theme style */ -}}
+{{ $sass := resources.Get "scss/index.scss" }}
+{{ $style := $sass | resources.ToCSS | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
+
+{{- /* Favicons */}}
+<link rel="icon" href="{{ site.Params.assets.favicon | default "favicon.ico" | absURL }}">
+
+{{- /* Typewriter */ -}}
+{{- $typewriter := resources.Get "js/typewriter.js" }}
+{{- $script := resources.Get "js/script.js" }}
+<script defer crossorigin="anonymous" src="{{ $typewriter.Permalink }}" integrity="{{ $typewriter.Data.Integrity }}"></script>
+<script defer crossorigin="anonymous" src="{{ $script.Permalink }}" integrity="{{ $script.Data.Integrity }}"></script>

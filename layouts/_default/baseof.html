@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{- partial "head.html" . -}}
+  </head>
+  <body>
+    <div class="container-lg">
+      <div class="home-container">
+        {{- partial "header.html" . -}}
+        <main class="main">
+          {{- block "main" . }}{{ end }}
+        </main>
+        {{- partial "footer.html" . -}}
+      </div>
+    </div>
+  </body>
+</html>
+
