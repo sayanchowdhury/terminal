@@ -17,7 +17,7 @@
 {{- /* bundle all required css */}}
 {{- /* Add extended css after theme style */ -}}
 {{ $sass := resources.Get "scss/index.scss" }}
-{{ $style := $sass | resources.ToCSS | resources.Fingerprint }}
+{{ $style := $sass | css.Sass | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}">
 
 {{- /* Favicons */}}
